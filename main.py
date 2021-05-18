@@ -32,4 +32,4 @@ async def on_message(message):
     if message.content.startswith('@everyone'):
         await kick(ctx="none",user=message.author,reason="spam")
 
-client.run('ODQ0MjQ5NzM1ODM2OTkxNTk4.YKPq1g.6WkNPpgA6o7WYbiMqEnlnyrdYfo')
+client.run('ODQ0MjQ5NzM1ODM2OTkxNTk4.YKPq1g.lGjo8WF0MRfvuXgOJk48k8Oz8RA')
