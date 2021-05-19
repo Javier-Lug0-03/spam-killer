@@ -1,16 +1,17 @@
+#made by Javier Lugo
 import discord
 from discord import message
 from discord.ext import commands
 import random
 from discord.flags import Intents
-
+#defines the global variables used
 description = "a bot to kick the assholes that won't stop spamming/pinging on a discord server"
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='?', description=description, intents=intents)
 client = discord.Client()
 
 @commands.has_permissions(kick_members=True)
-
+#defines the kick function
 @bot.command(pass_context = True, name="kick")
 async def kick(ctx, user: discord.Member, *, reason="No reason provided"):
         await user.kick(reason=reason)
@@ -18,12 +19,12 @@ async def kick(ctx, user: discord.Member, *, reason="No reason provided"):
         await ctx.message.delete()
         await ctx.channel.send(embed=kick)
         await user.send(embed=kick)
-
+#shows some info in the terminal
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    print('version 1.0.7 BETA')
-
+    print('version 1.0.8 BETA')
+#kicks the person that sent the message
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -31,7 +32,7 @@ async def on_message(message):
 
     if message.content.startswith('@everyone'):
         await kick(ctx="none",user=message.author,reason="spam")
-
+#kicks the person that sent the message
 @client.event
 async def on_message(message):
     if message.author == client.user:
